@@ -1,0 +1,14 @@
+
+file_format: "1"
+id: a4
+name: a4
+type: shield
+features:
+  - keys
+  - studio
+outputs:
+  - usb
+  - ble
+siblings:
+  - a4_left
+  - a4_right

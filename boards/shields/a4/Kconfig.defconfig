@@ -1,0 +1,14 @@
+
+if SHIELD_A4_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "a4"
+
+endif
+
+if SHIELD_A4_LEFT || SHIELD_A4_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
