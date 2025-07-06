@@ -7,11 +7,11 @@
 
         layer_0 {
             bindings = <
-&gresc  &none  &none  &kp NUMBER_3  &kp NUMBER_4                     &kp N5         &none  &none        &none  &none  &none  &none  &none  &none
-&none   &none  &none  &kp U         &kp COMMA                        &kp PERIOD     &none  &none        &none  &none  &none  &none  &none  &none
-&none   &none  &none  &kp A         &kp O                            &kp SLASH      &none  &none        &none  &none  &none  &none  &none  &none
-&none   &none  &none  &kp C         &kp V                            &kp SEMICOLON                      &none  &none  &none  &none  &none  &none
-&none                               &mt LG(LANGUAGE_1) LEFT_COMMAND  &none          &none  &lt 1 ENTER  &none  &none                       &none
+&gresc  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4                     &kp N5         &none  &none        &kp NUMBER_6   &kp NUMBER_7             &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &none
+&none   &kp Q         &kp L         &kp U         &kp COMMA                        &kp PERIOD     &none  &none        &kp F          &kp W                    &kp R         &kp Y         &kp P         &none
+&none   &kp E         &kp I         &kp A         &kp O                            &kp SLASH      &none  &none        &kp K          &kp T                    &kp N         &kp S         &kp H         &none
+&none   &kp Z         &kp X         &kp C         &kp V                            &kp SEMICOLON                      &kp G          &kp D                    &kp M         &kp J         &kp B         &none
+&none                                             &mt LG(LANGUAGE_1) LEFT_COMMAND  &kp SPACE      &none  &lt 1 ENTER  &kp BACKSPACE  &mt RIGHT_COMMAND LANG2                                            &none
             >;
         };
 
