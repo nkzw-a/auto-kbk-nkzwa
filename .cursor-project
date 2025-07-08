@@ -1,0 +1,21 @@
+{
+    "name": "auto-kbk-nkzwa",
+    "commands": [
+        {
+            "name": "Init ZMK",
+            "command": "west init -l config && west update && west zephyr-export && pip install -r zephyr/scripts/requirements.txt"
+        },
+        {
+            "name": "Build left",
+            "command": "west build -p -d build/left -b akdk_bt1 -- -DSHIELD=a4_left"
+        },
+        {
+            "name": "Build right",
+            "command": "west build -p -d build/right -b akdk_bt1 -- -DSHIELD=a4_right"
+        },
+        {
+            "name": "Build settings_reset",
+            "command": "west build -p -d build/settings_reset -b akdk_bt1 -- -DSHIELD=settings_reset"
+        }
+    ]
+} 
