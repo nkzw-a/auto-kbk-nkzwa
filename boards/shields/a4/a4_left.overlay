@@ -50,9 +50,9 @@
         #size-cells = <0>;
 
         trackball_split: trackball_split@0 {
-            compatible = "zmk,input-split";
-            reg = <0>;
-            device = <&trackball>;
+            compatible = "zmk,input-split"; // ZMKのinput-splitノード。左右分割キーボード間で入力データを転送するための仮想デバイス。
+            reg = <0>; // デバイスアドレス。分割通信で一意に識別するため。
+            device = <&trackball>; // 送信元デバイスとしてtrackballを指定。右側へtrackball入力を転送する。
         };
     };
 };
@@ -90,11 +90,11 @@
     cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
 
     trackball: trackball@0 {
-        status = "okay";
-        compatible = "pixart,paw3222";
-        reg = <0>;
-        spi-max-frequency = <2000000>;
-        irq-gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
+        status = "okay"; // trackballデバイスが有効であることを示す。
+        compatible = "pixart,paw3222"; // 使用しているトラックボールIC（PixArt PAW3222）を指定。
+        reg = <0>; // SPIバス上のデバイスアドレス。
+        spi-max-frequency = <2000000>; // SPI通信の最大周波数（2MHz）。
+        irq-gpios = <&gpio0 15 GPIO_ACTIVE_LOW>; // 割り込みピンの指定。trackballからのイベント通知用。
     };
 };
 

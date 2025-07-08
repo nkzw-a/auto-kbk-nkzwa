@@ -47,9 +47,9 @@
     };
 
     trackball_listener: trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-        input-processors = <&zip_temp_layer 3 200>;
+        compatible = "zmk,input-listener"; // ZMKのinput-listenerノード。デバイスからの入力イベントを受け取り、指定したプロセッサで処理する役割。
+        device = <&trackball>; // どのデバイス（ここではtrackball）からの入力をリッスンするかを指定。
+        input-processors = <&zip_temp_layer 3 200 &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>; // 入力処理プロセッサ。ここではzip_temp_layer（おそらく一時的なレイヤー切り替え等の処理）を指定。引数はプロセッサ固有。
     };
 
     split_inputs {
@@ -57,16 +57,16 @@
         #size-cells = <0>;
 
         trackball_split: trackball_split@0 {
-            compatible = "zmk,input-split";
-            reg = <0>;
+            compatible = "zmk,input-split"; // ZMKのinput-splitノード。左右分割キーボード間で入力データを転送するための仮想デバイス。
+            reg = <0>; // デバイスアドレス。分割通信で一意に識別するため。
         };
     };
 
     trackball_split_listener: trackball_split_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball_split>;
-        status = "okay";
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+        compatible = "zmk,input-listener"; // 分割側で受信したtrackball入力を処理するリスナー。
+        device = <&trackball_split>; // 分割通信で受信したtrackball入力デバイスを指定。
+        status = "okay"; // このノードが有効であることを示す。
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>; // 入力値の変換プロセッサ。ここではX/Y軸の反転処理を行う。
     };
 };
 
@@ -103,11 +103,11 @@
     cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
 
     trackball: trackball@0 {
-        status = "okay";
-        compatible = "pixart,paw3222";
-        reg = <0>;
-        spi-max-frequency = <2000000>;
-        irq-gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
+        status = "okay"; // trackballデバイスが有効であることを示す。
+        compatible = "pixart,paw3222"; // 使用しているトラックボールIC（PixArt PAW3222）を指定。
+        reg = <0>; // SPIバス上のデバイスアドレス。
+        spi-max-frequency = <2000000>; // SPI通信の最大周波数（2MHz）。
+        irq-gpios = <&gpio0 15 GPIO_ACTIVE_LOW>; // 割り込みピンの指定。trackballからのイベント通知用。
     };
 };
 
